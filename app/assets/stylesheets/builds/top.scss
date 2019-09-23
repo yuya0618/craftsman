@@ -1,0 +1,129 @@
+.top{
+  &-head{
+    height: 500px;
+    background-color: tomato;
+    color: aliceblue;
+    &-header{
+      background-color: tomato;
+        color: aliceblue;
+        height: 50px;
+        line-height: 50px;
+        justify-content: space-between;
+      &-left{
+        margin-left: 20px;
+        &-list{
+          .header-button{
+            color: #fff;
+            &:hover{
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      &-right{
+        &-list{
+          margin-right: 5px;
+          .header-button-resi{
+            background-color: red;
+            border: red;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            &:hover{
+              text-decoration: none;
+              opacity: 0.7;
+            }
+          }
+          .header-button-login{
+            background-color: blue;
+            border: blue;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            &:hover{
+              text-decoration: none;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+    &-box{
+      text-align: center;
+      padding: 50px;
+      letter-spacing: 3px;
+      &-title{
+        font-size: 25px;
+      }
+    }
+    &-form{
+      padding: 30px;
+      text-align: center;
+      &-box{
+        display: inline-flex;
+        &-field{
+          padding: 10px;
+          width: 300px;
+          height: 50px;
+          border: 1px white;
+          border-radius: 6px 0 0 6px;
+          &-button{
+            height: 50px;
+            width: 80px;
+            border: 1px deepskyblue;
+            background-color: deepskyblue;
+            color: #fff;
+            border-radius: 0 6px 6px 0;
+          }
+        }
+      }
+    }
+  }
+  .pickup{
+    background: #f5f5f5;
+    padding:40px 0 0;
+    .pickup-top{
+      font-size: 28px;
+      text-align: center;
+      font-weight: bold;
+      color: darkslategray;
+    }
+  }
+  .items-container{
+    width: 70%;
+    margin: 0 auto;
+    .items-head{
+      font-size: 22px;
+      margin: 26px 11px;
+      text-align: center;
+      a{
+        color: #0099e8;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+    .items-box{
+      width: auto;
+      display: flex;
+      padding-left:33px;
+      .item-box{
+        background-color: white;
+        width: 213px;
+        margin: 0 0 0 20px;
+      }
+    }
+    .more-items{
+      padding: 20px 0 30px;
+      text-align: center;
+      &-text{
+        width: 160px;
+        background-color: deepskyblue;
+        color: #fff;
+        font-size: 18px;
+        &:hover{
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

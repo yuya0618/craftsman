@@ -1,0 +1,48 @@
+.top
+  .top-head
+    .top-head-header.row.mx-0
+      %ul.top-head-header-left.row
+        %li.top-head-header-left-list.mr-4
+          =link_to "Craftsmanとは？", root_path,class:"header-button"
+        %li.top-head-header-left-list.mr-4
+          =link_to "Build", new_build_path,class:"header-button"
+        %li.top-head-header-left-list.mr-4
+          =link_to "Release", new_release_path,class:"header-button"
+      %ul.top-head-header-right.row.mx-0.py-2
+        -if user_signed_in?
+          %li.top-head-header-right-list.mr-4
+            =link_to "ログアウト", new_user_session_path,class:"header-button-login"
+        -else
+          %li.top-head-header-right-list.mr-4
+            =link_to "新規会員登録", new_user_registration_path,class:"header-button-resi"
+          %li.top-head-header-right-list.mr-4
+            =link_to "ログイン", new_user_session_path,class:"header-button-login"
+    .top-head-box
+      .top-head-box-title.mb-5
+        = icon 'fas', 'home'
+        %span Craftsman
+      %h1 集え、アイデア職人
+    .top-head-form
+      = form_for:build,url:"#" do |f|
+        .top-head-form-box
+          = f.text_field :title, {class: 'top-head-form-box-field', placeholder: '何かお探しですか？',value:""}
+          .header-top__send
+            = f.button "検索", class: "top-head-form-box-field-button"
+
+  .pickup
+    .pickup-top
+      = icon 'fas', 'hammer'
+      %span 新着Build
+
+      = render partial: 'builds/top-builds', locals:{ builds:@builds }
+
+  .pickup
+    .pickup-top
+      = icon 'fas', 'paper-plane'
+      %span 新着Release
+
+      = render partial: 'releases/top-releases', locals:{ releases:@releases }
+
+
+= render partial: 'shared/build-btn'
+= render partial: 'shared/release-btn'
