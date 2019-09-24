@@ -1,2 +1,5 @@
-.item-box
+.release-box
   = link_to release_path(release) do
+    %span.release-box-title
+    %p
+      = release.title

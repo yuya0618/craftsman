@@ -1,0 +1,71 @@
+.build-registration{
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 30px;
+  height: calc(100vh - 190px);
+  &-box{
+    background-color: #fff;
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px;
+    font-size: 20px;
+    h2{
+      font-family: sans-serif;
+      color: darkslateblue;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+  }
+  &__form__group{
+    font-weight: 600;
+    color: darkslategrey;
+    &__box__select{
+      input{
+        width: 80%;
+        padding: 5px;
+        margin: 15px 0;
+      }
+      textarea{
+        width: 80%;
+        padding: 5px;
+        margin: 15px 0;
+      }
+      &-reward{
+        input{
+          width: 30%;
+          padding: 5px;
+          margin: 15px 0;
+        }
+      }
+    }
+    &__actions{
+      input{
+        background-color: firebrick;
+        color: #fff;
+        font-weight: 500;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 15px 0;
+        &:hover{
+          opacity: 0.7;
+          border: none;
+        }
+      }
+    }
+    &__action{
+      input{
+        background-color: navy;
+        color: #fff;
+        font-weight: 500;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 15px 0;
+        &:hover{
+          opacity: 0.7;
+          border: none;
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: "users/sessions",
+  }
+
   root to: 'builds#top'
 
   resources :builds do
-    member do
+    collection do
       get 'top'
+      get 'signup'
+      get 'search'
     end
   end
-
 
   resources :releases
 

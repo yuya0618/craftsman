@@ -4,9 +4,13 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
 
+  def signup
+  end
+
+
   def top
-    @builds = Build.all
-    @releases = Release.all
+    @builds = Build.order("created_at DESC").limit(5)
+    @releases = Release.order("created_at DESC").limit(5)
   end
 
   def index
@@ -30,18 +34,10 @@ class BuildsController < ApplicationController
   # POST /builds
   # POST /builds.json
   def create
-    @build = Build.new(build_params)
-
-    respond_to do |format|
-      if @build.save
-        format.html { redirect_to @build, notice: 'Build was successfully created.' }
-        format.json { render :show, status: :created, location: @build }
-      else
-        format.html { render :new }
-        format.json { render json: @build.errors, status: :unprocessable_entity }
-      end
-    end
+    @build = Build.create!(build_params)
+    redirect_to root_path
   end
+
 
   # PATCH/PUT /builds/1
   # PATCH/PUT /builds/1.json
@@ -67,6 +63,9 @@ class BuildsController < ApplicationController
     end
   end
 
+  def search
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_build
@@ -75,6 +74,6 @@ class BuildsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def build_params
-      params.fetch(:build, {})
+      params.require(:build).permit(:title, :detail, :reward).merge(user_id: current_user.id)
     end
 end

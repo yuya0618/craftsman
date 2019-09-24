@@ -1,0 +1,22 @@
+%header.header
+  .header-inner
+    .header-top
+      .header-top__logo-box
+        = link_to "Craftsman", root_path
+      .header-top__search-form-box
+        = search_form_for(@search,url:search_builds_path,class:'header-top__search-form') do |f|
+          = f.text_field :name_cont, {class: 'header-top__input-field', placeholder: '何かお探しですか？',value:""}
+          .header-top__send
+            = f.button "", class: "header-top__fa wid fa fa-search"
+
+    .header-bottom
+      .header-bottom__right
+        %ul.header-bottom__user-nav
+          -if user_signed_in?
+            %li.header-bottom-button
+            =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-bottom-button__login"
+          -else
+            %li.header-bottom-button
+              = link_to "新規会員登録", signup_builds_path,class:"header-bottom-button__resi "
+            %li.header-bottom-button
+              = link_to "ログイン", new_user_session_path,class:"header-bottom-button__login "

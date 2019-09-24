@@ -1,6 +1,20 @@
-%p#notice= notice
+= render 'shared/header'
+
+.release-container
+  .release-content
+    .release-box
+      %span.release-box-title
+      %h2
+        = @release.title
+      %p
+        = @release.detail
+
+  .release-comment
+
 
 
 = link_to 'Edit', edit_release_path(@release)
 \|
 = link_to 'Back', releases_path
+
+= render partial: 'shared/footer'
