@@ -1,6 +1,19 @@
-%p#notice= notice
+= render 'shared/header'
+
+.build-container
+  .build-content
+    .build-box
+      %span.build-box-title
+        = @build.title
+      %p
+        = @build.detail
+
+  .build-comment
+
 
 
 = link_to 'Edit', edit_build_path(@build)
 \|
 = link_to 'Back', builds_path
+
+= render partial: 'shared/footer'

@@ -1,5 +1,31 @@
-%h1 New build
+= render 'shared/header'
 
-= render 'form'
+.build-registration
+  .build-registration-box
+    %h2.build-registration__head Buildを建ち上げて、アイデアを募集する
+    = form_with model: @build, class:'build-registration__form', local: true, html: { multipart: true } do |f|
+      .build-registration__form__group
+        %span.build-registration__form__group__box__label タイトル
+        -# %span.build-registration__form__group__box__necessary 必須
 
-= link_to 'Back', builds_path
+        .build-registration__form__group__box__select
+          = f.text_field :title, placeholder: "募集テーマ"
+
+        %span.build-registration__form__group__box__label 詳細
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_area :detail, placeholder: "詳細な募集内容"
+
+
+        %span.build-registration__form__group__box__label ポイント
+        -# %span.build-registration__form__group__box__necessary 必須
+        .build-registration__form__group__box__select-reward
+          = f.text_field :reward, placeholder: "ポイント"
+
+        .build-registration__form__group__actions
+          = f.submit "建ち上げる"
+        .build-registration__form__group__return
+          = link_to 'もどる', root_path, class: 'root-return-btn btn'
+
+= render partial: 'shared/footer'

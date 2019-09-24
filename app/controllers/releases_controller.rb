@@ -24,17 +24,8 @@ class ReleasesController < ApplicationController
   # POST /releases
   # POST /releases.json
   def create
-    @release = Release.new(release_params)
-
-    respond_to do |format|
-      if @release.save
-        format.html { redirect_to @release, notice: 'Release was successfully created.' }
-        format.json { render :show, status: :created, location: @release }
-      else
-        format.html { render :new }
-        format.json { render json: @release.errors, status: :unprocessable_entity }
-      end
-    end
+    @release = Release.create!(release_params)
+    redirect_to root_path
   end
 
   # PATCH/PUT /releases/1
@@ -69,6 +60,6 @@ class ReleasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def release_params
-      params.fetch(:release, {})
+      params.require(:release).permit(:title, :detail).merge(user_id: current_user.id)
     end
 end

@@ -1,5 +1,25 @@
-%h1 New release
+= render 'shared/header'
 
-= render 'form'
+.build-registration
+  .build-registration-box
+    %h2.build-registration__head アイデアを放出する
+    = form_with model: @release, class:'build-registration__form', local: true, html: { multipart: true } do |f|
+      .build-registration__form__group
+        %span.build-registration__form__group__box__label タイトル
+        -# %span.build-registration__form__group__box__necessary 必須
 
-= link_to 'Back', releases_path
+        .build-registration__form__group__box__select
+          = f.text_field :title, placeholder: "アイデアの題名"
+
+        %span.build-registration__form__group__box__label 詳細
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_area :detail, placeholder: "詳細なアイデアの内容"
+
+        .build-registration__form__group__action
+          = f.submit "放出する"
+        .build-registration__form__group__return
+          = link_to 'もどる', root_path, class: 'root-return-btn btn'
+
+= render partial: 'shared/footer'
