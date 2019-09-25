@@ -20,6 +20,7 @@ class BuildsController < ApplicationController
   # GET /builds/1
   # GET /builds/1.json
   def show
+
   end
 
   # GET /builds/new

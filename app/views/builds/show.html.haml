@@ -1,14 +1,42 @@
 = render 'shared/header'
 
 .build-container
+  -# お題とフォーム
   .build-content
+    %h3
+      = @build.user.name
+      %span さんのお題
     .build-box
       %span.build-box-title
         = @build.title
       %p
         = @build.detail
+    -# お題への案フォーム
+    .build-comment-form
+      = form_with url:build_build_comments_path(@build), method: :post, class:'',local: true, html: { multipart: true } do |f|
+        = f.text_field :title, placeholder: "タイトルをつけよう",class:"build-comment-form__title"
+        = f.text_area :detail, placeholder: "具体的な案の内容", class:"build-comment-form__detail"
+        = f.submit "案を出す", class:"build-comment-form__submit btn btn-primary"
 
-  .build-comment
+  -# お題へのみんなの案一覧
+  .build-comments
+    %h3 みんなの案
+    - @build.build_comments.each do |build_comment|
+      .build-comment-box
+        .build-comment
+          %span.build-comment-title
+            = build_comment.title
+          = build_comment.detail
+
+        -# 案へのリアクション
+        - build_comment.build_reactions.each do |build_reaction|
+          .build-comment-comment
+            = build_reaction.detail
+        -# 案へのコメントフォーム
+        .build-comment-form
+          = form_with url:build_build_reactions_path(build_id:@build.id, build_comment_id:build_comment.id), method: :post, class:'',local: true, html: { multipart: true } do |f|
+            = f.text_field :detail, placeholder: "コメントをする",class:"build-comment-form__detail"
+            = f.submit "投稿する", class:"build-comment-form__submit btn btn-success"
 
 
 

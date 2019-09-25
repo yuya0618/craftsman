@@ -9,7 +9,14 @@
       %p
         = @release.detail
 
-  .release-comment
+  - @release.release_comments.each do |release_comment|
+    .release-comment
+      = release_comment.detail
+    -# 案へのコメントフォーム
+  .release-comment-form
+    = form_with url:release_release_comments_path(@release), method: :post, class:'',local: true, html: { multipart: true } do |f|
+      = f.text_field :detail, placeholder: "コメントをする",class:"release-comment-form__detail"
+      = f.submit "投稿する", class:"release-comment-form__submit btn btn-info"
 
 
 

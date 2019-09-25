@@ -12,9 +12,13 @@ Rails.application.routes.draw do
       get 'signup'
       get 'search'
     end
+    resources :build_comments, only: [:create]
+    resources :build_reactions, only: [:create]
   end
 
-  resources :releases
+  resources :releases do
+    resources :release_comments, only: [:create]
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
