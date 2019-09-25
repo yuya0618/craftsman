@@ -4,6 +4,12 @@
   text-align: center;
   padding: 60px;
   .build-content{
+    h3{
+      margin-bottom: 30px;
+      color: tomato;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
     .build-box{
       position: relative;
       margin: 2em auto;
@@ -46,6 +52,99 @@
       p{
         text-align: left;
         margin-top: 2em;
+      }
+    }
+    .build-comment-form{
+      margin: 0 auto;
+      width: 60%;
+      padding: 20px;
+      background-color: white;
+      border-bottom: 1px solid lightgray;
+      background-color: lightgrey;
+      &__title{
+        width: 80%;
+        padding: 7px;
+        margin-bottom: 10px;
+      }
+      &__detail{
+        width: 80%;
+        padding: 7px;
+        border: 1px solid lightgray;
+        margin-bottom: 10px;
+      }
+      &__submit{
+        width: 150px;
+      }
+    }
+  }
+  .build-comments{
+    h3{
+      margin: 60px 0 30px;
+      color: darkslateblue;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+    .build-comment-box{
+      margin: 30px auto 60px;
+      .build-comment{
+        margin: 0 auto;
+        position: relative;
+        padding: 40px 35px;
+        width: 60%; /* ボックス幅 */
+        background-color: #006633; /* ボックス背景色 */
+        color: #fff; /* 文章色 */
+        border: 8px solid #b2771f; /* 枠線 */
+        border-radius: 3px; /* 角の丸み */
+        box-shadow: 0 0 5px #333, 0 0 5px #555 inset;
+        &-title{
+          position: absolute;
+          left: 1em;
+          top: .5em;
+          font-weight: bold;
+          font-size: 1.1em;
+          color: #ffff6b; /* タイトル色 */
+        }
+      }
+      .build-comment::before,
+      .build-comment::after{
+        position: absolute;
+        content: '';
+        bottom: 0;
+      }
+      .build-comment::before{
+        right: 10px;
+        border: solid 3px #fff; /*チョーク（白）*/
+        width: 20px; 
+        border-radius: 3px 2px 0 2px;
+      }
+      .build-comment::after{
+        right: 40px;
+        border: solid 3px #ffff6b; /*チョーク（黄色）*/
+        width: 15px; 
+        border-radius: 8px 5px 2px 5px;
+      }
+      .build-comment-comment{
+        margin: 0 auto;
+        width: 60%;
+        padding: 20px;
+        background-color: white;
+        border-bottom: 1px solid lightgray;
+      }
+      .build-comment-form{
+        margin: 0 auto;
+        width: 60%;
+        padding: 20px;
+        background-color: white;
+        border-bottom: 1px solid lightgray;
+        &__detail{
+          width: 80%;
+          padding: 7px;
+          border: 1px solid lightgray;
+          margin-bottom: 10px;
+        }
+        &__submit{
+          width: 150px;
+        }
       }
     }
   }

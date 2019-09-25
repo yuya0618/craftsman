@@ -2,7 +2,7 @@
 
 .build-registration
   .build-registration-box
-    %h2.build-registration__head Buildを建ち上げて、アイデアを募集する
+    %h2.build-registration-box__head Buildを建ち上げて、アイデアを募集する
     = form_with model: @build, class:'build-registration__form', local: true, html: { multipart: true } do |f|
       .build-registration__form__group
         %span.build-registration__form__group__box__label タイトル

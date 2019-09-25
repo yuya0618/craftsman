@@ -2,7 +2,7 @@
 
 .build-registration
   .build-registration-box
-    %h2.build-registration__head アイデアを放出する
+    %h2.build-registration-box__heads アイデアを放出する
     = form_with model: @release, class:'build-registration__form', local: true, html: { multipart: true } do |f|
       .build-registration__form__group
         %span.build-registration__form__group__box__label タイトル
