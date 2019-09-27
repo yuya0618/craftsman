@@ -11,12 +11,22 @@
         = @build.title
       %p
         = @build.detail
-    -# お題への案フォーム
-    .build-comment-form
-      = form_with url:build_build_comments_path(@build), method: :post, class:'',local: true, html: { multipart: true } do |f|
-        = f.text_field :title, placeholder: "タイトルをつけよう",class:"build-comment-form__title"
-        = f.text_area :detail, placeholder: "具体的な案の内容", class:"build-comment-form__detail"
-        = f.submit "案を出す", class:"build-comment-form__submit btn btn-primary"
+      -# いいね表示
+      %ul.like-buttons
+        =render partial: 'likes/like', locals:{ build:@build, like:@like }
+
+
+    - if @build.user_id == current_user&.id
+      .build-comment-form
+        = link_to "編集する", edit_build_path(@build),class:"btn btn-info fas fa-pen"
+        = link_to "削除する", build_path(@build),method: :delete, class:"btn btn-danger fas fa-eraser", data: { confirm: "このBuildを削除します。よろしいですか？" }
+    -else
+      -# お題への案フォーム
+      .build-comment-form
+        = form_with url:build_build_comments_path(@build), method: :post, class:'',local: true, html: { multipart: true } do |f|
+          = f.text_field :title, placeholder: "タイトルをつけよう",class:"build-comment-form__title"
+          = f.text_area :detail, placeholder: "具体的な案の内容", class:"build-comment-form__detail"
+          = f.submit "案を出す", class:"build-comment-form__submit btn btn-primary"
 
   -# お題へのみんなの案一覧
   .build-comments
@@ -28,10 +38,20 @@
             = build_comment.title
           = build_comment.detail
 
+          -# いいね表示。コメントごとにJS連動するようにID名を変えている
+          %ul{id:"like-buttons-#{build_comment.id}"}
+            =render partial: 'build_comment_likes/like', locals:{ build_comment:build_comment, like:@build_comment_like }
+
+        - if build_comment.user_id == current_user&.id
+          .build-comment-form
+            = link_to "編集する",  edit_build_build_comment_path(id:build_comment.id, build_id:build_comment.build_id),class:"btn btn-info fas fa-pen"
+            = link_to "削除する", build_build_comment_path(id:build_comment.id, build_id:build_comment.build_id),method: :delete, class:"btn btn-danger fas fa-eraser", data: { confirm: "この案を削除します。よろしいですか？" }
         -# 案へのリアクション
         - build_comment.build_reactions.each do |build_reaction|
           .build-comment-comment
             = build_reaction.detail
+            - if build_reaction.user_id == current_user.id
+              = link_to "", build_build_reaction_path(id:build_reaction.id, build_id:build_reaction.build_id),method: :delete, class:"build-comment-comment-delete fas fa-eraser", data: { confirm: "このコメントを削除します。よろしいですか？" }
         -# 案へのコメントフォーム
         .build-comment-form
           = form_with url:build_build_reactions_path(build_id:@build.id, build_comment_id:build_comment.id), method: :post, class:'',local: true, html: { multipart: true } do |f|
@@ -39,9 +59,6 @@
             = f.submit "投稿する", class:"build-comment-form__submit btn btn-success"
 
 
-
-= link_to 'Edit', edit_build_path(@build)
-\|
-= link_to 'Back', builds_path
-
+= render partial: 'shared/build-btn'
+= render partial: 'shared/release-btn'
 = render partial: 'shared/footer'

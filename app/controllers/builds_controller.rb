@@ -20,7 +20,8 @@ class BuildsController < ApplicationController
   # GET /builds/1
   # GET /builds/1.json
   def show
-
+    @like = Like.where(user_id: current_user.id, build_id: params[:build_id])
+    @build_comment_like = BuildCommentLike.where(user_id: current_user.id, build_comment_id: params[:build_comment_id])
   end
 
   # GET /builds/new
@@ -30,6 +31,9 @@ class BuildsController < ApplicationController
 
   # GET /builds/1/edit
   def edit
+    if @build.user_id != current_user.id
+      redirect_to build_path(@build)
+    end
   end
 
   # POST /builds
@@ -57,11 +61,8 @@ class BuildsController < ApplicationController
   # DELETE /builds/1
   # DELETE /builds/1.json
   def destroy
-    @build.destroy
-    respond_to do |format|
-      format.html { redirect_to builds_url, notice: 'Build was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @build.destroy if @build.user_id == current_user.id
+    redirect_to root_path
   end
 
   def search

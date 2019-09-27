@@ -9,9 +9,21 @@
       %p
         = @release.detail
 
+      -# いいね表示
+      %ul.like-buttons
+        =render partial: 'release_likes/like', locals:{ release:@release, like:@like }
+
+  - if @release.user_id == current_user&.id
+    .release-comment-form
+      = link_to "編集する", edit_release_path(@release),class:"btn btn-warning text-white fas fa-pen"
+      = link_to "削除する", release_path(@release),method: :delete, class:"btn btn-danger fas fa-eraser", data: { confirm: "このReleaseを削除します。よろしいですか？" }
+
   - @release.release_comments.each do |release_comment|
     .release-comment
       = release_comment.detail
+      - if release_comment.user_id == current_user.id
+        = link_to "",release_release_comment_path(id:release_comment.id, release_id:release_comment.release_id),method: :delete, class:"release-comment-delete fas fa-eraser", data: { confirm: "このコメントを削除します。よろしいですか？" }
+
     -# 案へのコメントフォーム
   .release-comment-form
     = form_with url:release_release_comments_path(@release), method: :post, class:'',local: true, html: { multipart: true } do |f|
@@ -19,9 +31,6 @@
       = f.submit "投稿する", class:"release-comment-form__submit btn btn-info"
 
 
-
-= link_to 'Edit', edit_release_path(@release)
-\|
-= link_to 'Back', releases_path
-
+= render partial: 'shared/build-btn'
+= render partial: 'shared/release-btn'
 = render partial: 'shared/footer'
