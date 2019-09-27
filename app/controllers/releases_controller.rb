@@ -10,6 +10,7 @@ class ReleasesController < ApplicationController
   # GET /releases/1
   # GET /releases/1.json
   def show
+    @like = ReleaseLike.where(user_id: current_user.id, release_id: params[:release_id])
   end
 
   # GET /releases/new
@@ -19,6 +20,8 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1/edit
   def edit
+    if @release.user_id != current_user&.id
+      redirect_to release_path(@release)
   end
 
   # POST /releases
@@ -45,10 +48,8 @@ class ReleasesController < ApplicationController
   # DELETE /releases/1
   # DELETE /releases/1.json
   def destroy
-    @release.destroy
-    respond_to do |format|
-      format.html { redirect_to releases_url, notice: 'Release was successfully destroyed.' }
-      format.json { head :no_content }
+    @release.destroy if @release.user_id == current_user.id
+    redirect_to root_path
     end
   end
 

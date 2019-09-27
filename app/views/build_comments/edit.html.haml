@@ -2,22 +2,23 @@
 
 .build-registration
   .build-registration-box
-    %h2.build-registration-box__heads アイデアを編集する
-    = form_with model: @release, class:'build-registration__form',method: :patch, local: true, html: { multipart: true } do |f|
+    %h2.build-registration-box__heads 案を編集する
+    = form_with url: build_build_comment_path(id:@build_comment.id, build_id:@build_comment.build_id), class:'build-registration__form', method: :patch,local: true, html: { multipart: true } do |f|
       .build-registration__form__group
         %span.build-registration__form__group__box__label タイトル
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_field :title
+          = f.text_field :title, placeholder: "アイデアの題名", value:@build_comment.title
 
         %span.build-registration__form__group__box__label 詳細
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_area :detail
+          = f.text_area :detail, placeholder: "詳細なアイデアの内容", value:@build_comment.detail
 
         .build-registration__form__group__action
           = f.submit "更新する"
+
 
 = render partial: 'shared/footer'

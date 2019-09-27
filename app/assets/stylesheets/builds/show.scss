@@ -53,6 +53,19 @@
         text-align: left;
         margin-top: 2em;
       }
+      ul{
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        font-size: 18px;
+        a{
+          color:gold;
+          font-size: 20px;
+        }
+      }
     }
     .build-comment-form{
       margin: 0 auto;
@@ -61,6 +74,7 @@
       background-color: white;
       border-bottom: 1px solid lightgray;
       background-color: lightgrey;
+      border-radius: 0 0 8px 8px;
       &__title{
         width: 80%;
         padding: 7px;
@@ -104,6 +118,19 @@
           font-size: 1.1em;
           color: #ffff6b; /* タイトル色 */
         }
+        ul{
+          display: flex;
+          position: absolute;
+          bottom: 0px;
+          height: 40px;
+          line-height: 40px;
+          margin: 0;
+          font-size: 18px;
+          a{
+            color:gold;
+            font-size: 20px;
+          }
+        }
       }
       .build-comment::before,
       .build-comment::after{
@@ -129,6 +156,11 @@
         padding: 20px;
         background-color: white;
         border-bottom: 1px solid lightgray;
+        &-delete{
+          float: right;
+          color: brown;
+          font-size: 20px;
+        }
       }
       .build-comment-form{
         margin: 0 auto;
@@ -136,6 +168,7 @@
         padding: 20px;
         background-color: white;
         border-bottom: 1px solid lightgray;
+        border-radius: 0 0 8px 8px;
         &__detail{
           width: 80%;
           padding: 7px;

@@ -1,7 +1,29 @@
-%h1 Editing build
+= render 'shared/header'
 
-= render 'form'
+.build-registration
+  .build-registration-box
+    %h2.build-registration-box__head Buildを編集する
+    = form_with model: @build, class:'build-registration__form',method: :patch, local: true, html: { multipart: true } do |f|
+      .build-registration__form__group
+        %span.build-registration__form__group__box__label タイトル
+        -# %span.build-registration__form__group__box__necessary 必須
 
-= link_to 'Show', @build
-\|
-= link_to 'Back', builds_path
+        .build-registration__form__group__box__select
+          = f.text_field :title
+
+        %span.build-registration__form__group__box__label 詳細
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_area :detail
+
+
+        %span.build-registration__form__group__box__label ポイント
+        -# %span.build-registration__form__group__box__necessary 必須
+        .build-registration__form__group__box__select-reward
+          = f.text_field :reward
+
+        .build-registration__form__group__actions
+          = f.submit "更新する"
+
+= render partial: 'shared/footer'

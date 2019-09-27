@@ -35,6 +35,19 @@
       a:hover{
         text-decoration: none;
       }
+      .like-buttons{
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        font-size: 18px;
+        a{
+          color:tomato;
+          font-size: 22px;
+        }
+      }
     }
   }
 }
@@ -44,6 +57,11 @@
   padding: 20px;
   background-color: white;
   border-bottom: 1px solid lightgray;
+  &-delete{
+    float: right;
+    color: brown;
+    font-size: 20px;
+  }
 }
 .release-comment-form{
   margin: 0 auto;

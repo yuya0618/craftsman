@@ -1,0 +1,27 @@
+-# いいね機能
+-if user_signed_in?
+  -# ログイン＋いいね済み
+  -# -binding.pry
+  -if current_user.build_comment_already_liked?(build_comment)
+    %li
+      = link_to "", build_build_comment_build_comment_like_path(like, build_id: build_comment.build_id, build_comment_id:build_comment.id),method: :delete, id:"like-button", class:"btn fas fa-star",remote: true, data: { confirm: "nice!!を削除します。よろしいですか？" }
+    %li
+      %span
+        = build_comment.build_comment_likes.count
+      nice!!
+    -# ログイン＋未いいね
+  -else
+    %li
+      = link_to "", build_build_comment_build_comment_likes_path(build_id: build_comment.build_id, build_comment_id:build_comment.id), id:"like-button",method: :post, class:"btn far fa-star",remote: true
+    %li
+      %span
+        = build_comment.build_comment_likes.count
+      nice!!
+  -# ログインしてないとき
+-else
+  %li
+    = icon 'fas', 'fa-star'
+  %li
+    %span
+      = build_comment.build_comment_likes.count
+    nice!!
