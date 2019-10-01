@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  mount_uploader :icon, IconUploader
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
@@ -14,6 +13,9 @@ class User < ApplicationRecord
   has_many :release_likes, dependent: :destroy
 
   validates :name, length: { maximum: 8 }
+  validates :text, length: { maximum: 50 }
+  validates :email, presence: true, length: { maximum: 200 },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   # buildにNICEしてるかどうか
   def already_liked?(build)

@@ -1,0 +1,38 @@
+= render 'shared/header'
+
+.profile
+  .profile-top.row
+    .profile-top-left.col-4
+      .profile-top-left-icon
+    .profile-top-right
+      .profile-top-right-name
+        = @user.name
+      .profile-top-right-text
+        = @user.text
+
+  .profile-bottom
+    .profile-bottom-bar.row.mx-0
+      %li.col-4
+        =@user.name
+        %span のBuild
+      %li.col-4
+        =@user.name
+        %span のRelease
+      %li.col-4 NICEしたアイデア
+    .profile-bottom-content
+      %section.mybuild
+        -@mybuilds.each do |mybuild|
+          = render partial: 'builds/top-build', locals:{build: mybuild }
+      %section.myrelease
+        -@myreleases.each do |myrelease|
+          = render partial: 'releases/top-release', locals:{release: myrelease }
+      %section.mynice
+        -@mylikes.each do |mylike|
+          -likebuild= Build.find_by(id:mylike.build_id)
+          = render partial: 'builds/top-build', locals:{build: likebuild }
+        -@mycommentlikes.each do |mycommentlike|
+          -likecomment= BuildComment.find_by(id:mycommentlike.build_comment_id)
+          = render partial: 'builds/top-build', locals:{build: likecomment }
+        -@myreleaselikes.each do |myreleaselike|
+          -likerelease= Release.find_by(id:myreleaselike.release_id)
+          = render partial: 'releases/top-release', locals:{release: likerelease }

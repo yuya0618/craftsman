@@ -1,0 +1,11 @@
+.profile-edit.modal-dialog-centered
+  .profile-edit-content.modal-content
+    = form_with url: profile_path(current_user), method: :patch,class:"", remote:true do |f|
+      .profile-edit-content-icon.my-5{style:"background-image:url( #{@user.icon} )"}
+      = f.file_field :icon
+      .profile-edit-content-name
+        = f.text_field :name, value:@user.name ,class:"form-control"
+      .profile-edit-content-text.my-5
+        = f.text_area :text, value:@user.text ,class:"form-control"
+      .profile-edit-content-submit.my-5
+        = f.submit "更新する", class:"btn btn-primary"

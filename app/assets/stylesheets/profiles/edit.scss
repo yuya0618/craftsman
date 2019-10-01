@@ -1,0 +1,56 @@
+.profile-edit{
+  height: 100vh;
+  &-content{
+    width: 60%;
+    margin: 0 auto;
+    display: table;
+    text-align: center;
+    &-icon{
+      margin: 0 auto;
+      height: 150px;
+      width: 150px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 75px;
+      border: 1px solid lightgray;
+      input{
+      height: 100%;
+      width: 100%;
+      border-radius: 75px;
+      // display: none;
+      // &:hover{
+      //   border-style: none;
+      // }
+      }
+    }
+    &-name{
+      input{
+        width: 30%;
+        padding: 8px;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        border: 1px solid navy;
+        margin: 0 auto;
+      }
+    }
+    &-text{
+      textarea{
+      width: 50%;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 8px;
+      height: 100px;
+      border: 1px solid navy;
+      margin: 0 auto;
+      }
+    }
+    &-submit{
+      input{
+        width: 30%;
+        margin: 0 auto;
+        font-weight: 600;
+      }
+    }
+  }
+}
