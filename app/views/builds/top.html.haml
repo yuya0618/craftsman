@@ -8,6 +8,9 @@
           =link_to "Build", new_build_path,class:"header-button"
         %li.top-head-header-left-list.mr-4
           =link_to "Release", new_release_path,class:"header-button"
+        -if user_signed_in?
+          %li.top-head-header-left-list.mr-4
+            =link_to "マイページ", mypage_profile_path(current_user),class:"header-button"
       %ul.top-head-header-right.row.mx-0.py-2
         -if user_signed_in?
           %li.top-head-header-right-list.mr-4
