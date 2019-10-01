@@ -10,13 +10,19 @@
             = f.button "", class: "header-top__fa wid fa fa-search"
 
     .header-bottom
-      .header-bottom__right
+      .header-bottom__left
         %ul.header-bottom__user-nav
+          %li.header-bottom-button.mr-3.ml-1
+            =link_to "Build", new_build_path,class:"header-bottom-button__build"
+          %li.header-bottom-button.mr-3
+            =link_to "Release", new_release_path,class:"header-bottom-button__release"
           -if user_signed_in?
             %li.header-bottom-button
-            =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-bottom-button__login"
-          -else
+              =link_to "マイページ", mypage_profile_path(current_user),class:"header-bottom-button__mypage"
             %li.header-bottom-button
+              =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-bottom-button__login"
+          -else
+            %li.header-bottom-button.mr-4
               = link_to "新規会員登録", signup_builds_path,class:"header-bottom-button__resi "
             %li.header-bottom-button
               = link_to "ログイン", new_user_session_path,class:"header-bottom-button__login "

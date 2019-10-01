@@ -1,8 +1,9 @@
 .profile-edit.modal-dialog-centered
   .profile-edit-content.modal-content
     = form_with url: profile_path(current_user), method: :patch,class:"", remote:true do |f|
-      .profile-edit-content-icon.my-5{style:"background-image:url( #{@user.icon} )"}
-      = f.file_field :icon
+      .profile-edit-content-icon
+        .profile-edit-content-icon-img.my-5{style:"background-image:url( #{@user.icon} )"}
+        = f.file_field :icon
       .profile-edit-content-name
         = f.text_field :name, value:@user.name ,class:"form-control"
       .profile-edit-content-text.my-5

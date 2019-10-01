@@ -6,21 +6,17 @@
     display: table;
     text-align: center;
     &-icon{
-      margin: 0 auto;
-      height: 150px;
-      width: 150px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 75px;
-      border: 1px solid lightgray;
+      &-img{
+        margin: 0 auto;
+        height: 150px;
+        width: 150px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 75px;
+        border: 1px solid lightgray;
+      }
       input{
-      height: 100%;
-      width: 100%;
-      border-radius: 75px;
-      // display: none;
-      // &:hover{
-      //   border-style: none;
-      // }
+        // display: none;
       }
     }
     &-name{

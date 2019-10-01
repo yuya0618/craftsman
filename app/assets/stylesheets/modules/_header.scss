@@ -54,8 +54,10 @@
       width: 80vw;
       margin: 0 auto;
       margin-top: 10px;
-      &__right{
-        float: right;
+      list-style: none;
+      &__left{
+        width: 100%;
+        display: flex;
       }
       &-button{
         &__resi{
@@ -73,6 +75,36 @@
           border: 2px solid lightblue;
           border-radius: 4px;
           color: lightblue;
+          &:hover{
+            text-decoration: none;
+            opacity: 0.8;
+          }
+        }
+        &__build{
+          color: #fff;
+          background-color: firebrick;
+          padding: 10px;
+          border-radius: 4px;
+          &:hover{
+            text-decoration: none;
+            opacity: 0.8;
+          }
+        }
+        &__release{
+          color: #fff;
+          background-color: navy;
+          padding: 10px;
+          border-radius: 4px;
+          &:hover{
+            text-decoration: none;
+            opacity: 0.8;
+          }
+        }
+        &__mypage{
+          color: #fff;
+          background-color: tomato;
+          padding: 10px;
+          border-radius: 4px;
           &:hover{
             text-decoration: none;
             opacity: 0.8;
