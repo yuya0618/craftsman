@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'top'
       get 'signup'
       get 'search'
+      get 'introduce'
     end
     resources :likes, only: [:create, :destroy]
     resources :build_comments, only: [:create, :edit, :update, :destroy] do

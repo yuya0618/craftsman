@@ -27,12 +27,15 @@
         -@myreleases.each do |myrelease|
           = render partial: 'releases/top-release', locals:{release: myrelease }
       %section.mynice
-        -@mylikes.each do |mylike|
-          -likebuild= Build.find_by(id:mylike.build_id)
-          = render partial: 'builds/top-build', locals:{build: likebuild }
+        -# -@mylikes.each do |mylike|
+        -#   -likebuild= Build.find_by(id:mylike.build_id)
+        -#   = render partial: 'builds/top-build', locals:{build: likebuild }
         -@mycommentlikes.each do |mycommentlike|
           -likecomment= BuildComment.find_by(id:mycommentlike.build_comment_id)
-          = render partial: 'builds/top-build', locals:{build: likecomment }
+          .build-box
+            = link_to build_path(id:likecomment.build_id) do
+              %span.build-box-title
+                =likecomment.title
         -@myreleaselikes.each do |myreleaselike|
           -likerelease= Release.find_by(id:myreleaselike.release_id)
           = render partial: 'releases/top-release', locals:{release: likerelease }

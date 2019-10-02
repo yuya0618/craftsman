@@ -143,6 +143,74 @@
         height: 430px;
         display: flex;
         flex-wrap: wrap;
+        .build-box{
+          position: relative;
+          margin: 2em auto;
+          padding: 3.2em 1em 1em;
+          background-color: #006633; /* ボックス背景色 */
+          color: #fff; /* 文章色 */
+          border: 9px solid #b2771f; /* 枠線 */
+          border-radius: 9px; /* 角の丸み */
+          box-shadow: 0 0 5px #333, 0 0 5px #555 inset;
+          width: 23%;
+          height: 200px;
+          margin: 10px;
+          overflow: hidden;
+          &:before,&:after{
+            position: absolute;
+            content: '';
+            bottom: 0;
+          }
+          &:before{
+            right: 10px;
+            border: solid 3px #ffff6b; /*チョーク（黄色）*/
+            width: 24px; 
+            border-radius: 3px 2px 0 2px;
+          }
+          &:after{
+            right: 40px;
+            border: solid 3px #fff; /*チョーク（白）*/
+            width: 24px; 
+            border-radius: 8px 5px 2px 5px;
+          }
+          &-title{
+            position: absolute;
+            left: 0.2em;
+            top: 0.2em;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #ffff6b;
+            padding: 3px;
+          }
+        }
+        .release-box{
+          position:relative;
+          padding: 35px 20px 15px;
+          background-color: #e8ddbd;
+          box-shadow: inset 0 0 40px rgba(204, 186, 136,1), 0 2px 2px #ccc;
+          width: 23%;
+          height: 200px;
+          margin: 10px;
+          font-size: 1.1em;
+          &-title{
+            position: absolute;
+            top: -17px;
+            left: 40%;
+            padding: 18px 37px;
+            font-weight: bold;
+            background-color: rgba(255,255,255,.4);
+            border-left: 2px dotted rgba(0,0,0,.1);
+            border-right: 2px dotted rgba(0,0,0,.1);
+            box-shadow: 0 0 5px rgba(0,0,0,0.2); 
+            transform: rotate(-5deg);
+          }
+          p{
+            color: #555555;
+          }
+          a:hover{
+            text-decoration: none;
+          }
+        }
       }
     }
   }

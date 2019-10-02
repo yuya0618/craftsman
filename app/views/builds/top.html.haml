@@ -3,7 +3,7 @@
     .top-head-header.row.mx-0
       %ul.top-head-header-left.row
         %li.top-head-header-left-list.mr-4
-          =link_to "Craftsmanとは？", root_path,class:"header-button"
+          =link_to "Craftsmanとは？", introduce_builds_path,class:"header-button"
         %li.top-head-header-left-list.mr-4
           =link_to "Build", new_build_path,class:"header-button"
         %li.top-head-header-left-list.mr-4
@@ -32,19 +32,38 @@
           .header-top__send
             = f.button "検索", class: "top-head-form-box-field-button"
 
-  .pickup
-    .pickup-top
-      = icon 'fas', 'hammer'
-      %span 新着Build
+  .top-bottom
+    -# Buildの一覧
+    .pickup.col-8
+      .pickup-top
+        = icon 'fas', 'hammer'
+        %span 新着Build
+        = render partial: 'builds/top-builds', locals:{ builds:@builds }
+    -# Buildのランキング
+    .ranking.col-4
+      .ranking-top
+        = icon 'fas', 'crown'
+        %span Buildランキング
+        .items-container
+          -@build_ranks.each do |build_rank|
+            = render partial: 'builds/top-build', locals:{ build:build_rank }
 
-      = render partial: 'builds/top-builds', locals:{ builds:@builds }
 
-  .pickup
-    .pickup-top
-      = icon 'fas', 'paper-plane'
-      %span 新着Release
-
-      = render partial: 'releases/top-releases', locals:{ releases:@releases }
+  .top-bottom
+    -# Releaseの一覧
+    .pickup.col-8
+      .pickup-top
+        = icon 'fas', 'paper-plane'
+        %span 新着Release
+        = render partial: 'releases/top-releases', locals:{ releases:@releases }
+    -# Releaseのランキング
+    .ranking.col-4
+      .ranking-top
+        = icon 'fas', 'crown'
+        %span Releaseランキング
+        .items-container
+          -@release_ranks.each do |release_rank|
+            = render partial: 'releases/top-release', locals:{ release:release_rank }
 
 
 = render partial: 'shared/build-btn'

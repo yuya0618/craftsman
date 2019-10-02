@@ -7,10 +7,15 @@ class BuildsController < ApplicationController
   def signup
   end
 
+  def introduce
+  end
 
   def top
-    @builds = Build.order("created_at DESC").limit(5)
-    @releases = Release.order("created_at DESC").limit(5)
+    @builds = Build.order("created_at DESC").limit(4)
+    @releases = Release.order("created_at DESC").limit(4)
+    @like = Like.new
+    @build_ranks = Build.find(Like.group(:build_id).order('count(build_id) desc').limit(3).pluck(:build_id))
+    @release_ranks = Release.find(ReleaseLike.group(:release_id).order('count(release_id) desc').limit(3).pluck(:release_id))
   end
 
   def index
