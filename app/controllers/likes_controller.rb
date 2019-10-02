@@ -9,7 +9,6 @@ class LikesController < ApplicationController
 
   def destroy
     like = Like.find_by(user_id: current_user.id, build_id: params[:build_id])
-    # binding.pry
     like.destroy
     # @likes = Like.where(build_id: params[:build_id])
     render 'destroy.js.erb'
@@ -21,4 +20,3 @@ class LikesController < ApplicationController
     end
 
 end
-  

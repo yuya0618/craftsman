@@ -12,7 +12,7 @@
       %p
         = @build.detail
       -# いいね表示
-      %ul.like-buttons
+      %ul{id:"like-builds-#{@build.id}"}
         =render partial: 'likes/like', locals:{ build:@build, like:@like }
 
 

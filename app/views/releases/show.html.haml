@@ -10,7 +10,7 @@
         = @release.detail
 
       -# いいね表示
-      %ul.like-buttons
+      %ul.like-releases{id:"like-releases-#{@release.id}"}
         =render partial: 'release_likes/like', locals:{ release:@release, like:@like }
 
   - if @release.user_id == current_user&.id

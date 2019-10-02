@@ -9,7 +9,6 @@ class BuildCommentLikesController < ApplicationController
 
   def destroy
     like = BuildCommentLike.find_by(user_id: current_user.id, build_comment_id: params[:build_comment_id])
-    # binding.pry
     like.destroy
     # @likes = Like.where(build_id: params[:build_id])
     render 'destroy.js.erb'

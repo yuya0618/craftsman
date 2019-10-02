@@ -42,6 +42,11 @@ class ReleasesController < ApplicationController
     redirect_to root_path
   end
 
+  def list
+    @all_releases = Release.page(params[:page]).per(10).order("created_at DESC")
+    @like = ReleaseLike.where(user_id: current_user.id, release_id: params[:release_id])
+  end
+
   private
     def set_release
       @release = Release.find(params[:id])

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'signup'
       get 'search'
       get 'introduce'
+      get 'list'
     end
     resources :likes, only: [:create, :destroy]
     resources :build_comments, only: [:create, :edit, :update, :destroy] do
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
   end
 
   resources :releases do
+    collection do
+      get 'list'
+    end
     resources :release_likes, only: [:create, :destroy]
     resources :release_comments, only: [:create, :destroy]
   end

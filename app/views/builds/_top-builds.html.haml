@@ -3,4 +3,4 @@
     -builds.each do |build|
       = render partial: 'builds/top-build', locals:{build: build }
   .more-items
-    =link_to 'もっと見る',root_path, class:"more-items-text btn"
+    =link_to 'もっと見る',list_builds_path, class:"more-items-text btn"

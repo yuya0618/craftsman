@@ -1,0 +1,30 @@
+= render 'shared/header'
+
+.build-lists
+  -# Buildの一覧
+  .pickup
+    .pickup-top
+      = icon 'fas', 'hammer'
+      %span 全てのBuild
+      .build-list
+        -@all_builds.each do |build|
+          .build-box
+            = link_to build_path(build) do
+              %span.build-box-title
+                =build.title
+              %p
+                = build.detail
+              -# いいね表示
+              %ul.like-builds{id:"like-builds-#{build.id}"}
+                =render partial: 'likes/like', locals:{ build:build, like:@like }
+
+
+.paginate.py-4.text-center
+  = paginate @all_builds
+  = page_entries_info @all_builds
+
+
+
+= render partial: 'shared/build-btn'
+= render partial: 'shared/release-btn'
+= render partial: 'shared/footer'

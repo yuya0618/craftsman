@@ -3,4 +3,4 @@
     -releases.each do |release|
       = render partial: 'releases/top-release', locals:{release: release }
   .more-items
-    =link_to 'もっと見る',root_path, class:"more-items-text btn"
+    =link_to 'もっと見る',list_releases_path, class:"more-items-text btn"
