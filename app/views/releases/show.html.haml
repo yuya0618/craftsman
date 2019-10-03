@@ -2,6 +2,9 @@
 
 .release-container
   .release-content
+    %h3
+      = @release.user.name
+      %span さんのアイデア
     .release-box
       %span.release-box-title
       =link_to profile_path(@release.user) do

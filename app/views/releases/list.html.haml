@@ -11,6 +11,10 @@
           .release-box
             = link_to release_path(release) do
               %span.release-box-title
+              -if release.user.icon.present?
+                .release-box-title-icon{style:"background-image:url( #{release.user.icon} )"}
+              - else
+                .release-box-title-nilicon
               %h2
                 =release.title
               %p

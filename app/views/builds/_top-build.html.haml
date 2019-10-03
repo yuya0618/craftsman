@@ -1,4 +1,9 @@
 .build-box
   = link_to build_path(build) do
     %span.build-box-title
-      =build.title
+      -if build.user.icon.present?
+        .build-box-title-icon{style:"background-image:url( #{build.user.icon} )"}
+      - else
+        .build-box-title-nilicon
+      %p
+        =build.title
