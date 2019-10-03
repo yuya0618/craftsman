@@ -5,7 +5,10 @@
 .profile
   .profile-top.row
     .profile-top-left.col-4
-      .profile-top-left-icon{style:"background-image:url( #{@user.icon} )"}
+      -if @user.icon.present?
+        .profile-top-left-icon{style:"background-image:url( #{@user.icon} )"}
+      - else
+        .profile-top-left-nilicon
       =link_to "編集する",edit_profile_path(current_user), remote:true
 
     .profile-top-right

@@ -1,5 +1,6 @@
 class BuildsController < ApplicationController
   before_action :set_build, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_signup, except: [:signup, :top, :introduce]
 
   # GET /builds
   # GET /builds.json
@@ -89,4 +90,5 @@ class BuildsController < ApplicationController
     def build_params
       params.require(:build).permit(:title, :detail, :reward).merge(user_id: current_user.id)
     end
+
 end

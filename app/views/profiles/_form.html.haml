@@ -2,7 +2,10 @@
   .profile-edit-content.modal-content
     = form_with url: profile_path(current_user), method: :patch,class:"", remote:true do |f|
       .profile-edit-content-icon
-        .profile-edit-content-icon-img.my-5{style:"background-image:url( #{@user.icon} )"}
+        -if @user.icon.present?
+          .profile-edit-content-icon-img.my-5{style:"background-image:url( #{@user.icon} )"}
+        - else
+          .profile-edit-content-icon-nilimg
         = f.file_field :icon
       .profile-edit-content-name
         = f.text_field :name, value:@user.name ,class:"form-control"

@@ -24,10 +24,32 @@
         border-right: 2px dotted rgba(0, 0, 0, 0.1);
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         transform: rotate(-5deg);
+        &-icon{
+          float: left;
+          height: 50px;
+          width: 50px;
+          border-radius: 25px;
+          background-size: cover;
+          background-position: center;
+          margin-right: 15px;
+        }
+        &-nilicon{
+          float: left;
+          background-image: url("hito.png");
+          height: 50px;
+          width: 50px;
+          border-radius: 25px;
+          background-size: cover;
+          background-position: center;
+          margin-right: 15px;
+        }
       }
       h2{
+        width: 100%;
+        overflow: hidden;
         color: darkslategrey;
         margin-bottom: 1em;
+        line-height: 50px;
       }
       p{
         color: #555555;

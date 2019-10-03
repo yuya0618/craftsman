@@ -20,6 +20,17 @@
         border-radius: 75px;
         border: 1px solid lightgray;
       }
+      &-nilicon{
+        background-image: url("hito.png");
+        height: 150px;
+        width: 150px;
+        background-position: center;
+        background-size: cover;
+        margin: 40px auto;
+        line-height: 300px;
+        border-radius: 75px;
+        border: 1px solid lightgray;
+      }
       a{
         color: whitesmoke;
         font-size:15px;

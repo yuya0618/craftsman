@@ -3,7 +3,10 @@
 .profile
   .profile-top.row
     .profile-top-left.col-4
-      .profile-top-left-icon
+      -if @user.icon.present?
+        .profile-top-left-icon{style:"background-image:url( #{@user.icon} )"}
+      - else
+        .profile-top-left-nilicon
     .profile-top-right
       .profile-top-right-name
         = @user.name

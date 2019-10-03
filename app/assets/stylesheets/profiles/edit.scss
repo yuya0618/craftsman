@@ -6,7 +6,18 @@
     display: table;
     text-align: center;
     &-icon{
+      padding: 30px;
       &-img{
+        margin: 0 auto;
+        height: 150px;
+        width: 150px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 75px;
+        border: 1px solid lightgray;
+      }
+      &-nilimg{
+        background-image: url("hito.png");
         margin: 0 auto;
         height: 150px;
         width: 150px;

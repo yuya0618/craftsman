@@ -1,5 +1,6 @@
 class ReleasesController < ApplicationController
   before_action :set_release, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_signup
 
   def index
     @releases = Release.all

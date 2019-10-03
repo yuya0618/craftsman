@@ -8,6 +8,11 @@
       %span さんのお題
     .build-box
       %span.build-box-title
+        =link_to profile_path(@build.user) do
+          -if @build.user.icon.present?
+            .build-box-title-icon{style:"background-image:url( #{@build.user.icon} )"}
+          - else
+            .build-box-title-nilicon
         = @build.title
       %p
         = @build.detail
@@ -35,8 +40,14 @@
       .build-comment-box
         .build-comment
           %span.build-comment-title
+            =link_to profile_path(build_comment.user) do
+              -if build_comment.user.icon.present?
+                .build-comment-title-icon{style:"background-image:url( #{build_comment.user.icon} )"}
+              - else
+                .build-comment-title-nilicon
             = build_comment.title
-          = build_comment.detail
+          %p
+            = build_comment.detail
 
           -# いいね表示。コメントごとにJS連動するようにID名を変えている
           %ul{id:"like-buttons-#{build_comment.id}"}

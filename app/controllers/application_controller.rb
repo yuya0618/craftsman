@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     @search_builds = @search.result
   end
 
+
+  def move_to_signup
+    redirect_to signup_builds_path unless user_signed_in?
+  end
+
 end

@@ -4,6 +4,11 @@
   .release-content
     .release-box
       %span.release-box-title
+      =link_to profile_path(@release.user) do
+        -if @release.user.icon.present?
+          .release-box-title-icon{style:"background-image:url( #{@release.user.icon} )"}
+        - else
+          .release-box-title-nilicon
       %h2
         = @release.title
       %p
