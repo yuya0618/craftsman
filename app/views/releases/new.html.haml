@@ -9,13 +9,13 @@
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_field :title, placeholder: "アイデアの題名"
+          = f.text_field :title, placeholder: "アイデアの題名", required:true
 
         %span.build-registration__form__group__box__label 詳細
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_area :detail, placeholder: "詳細なアイデアの内容"
+          = f.text_area :detail, placeholder: "詳細なアイデアの内容", required:true
 
         .build-registration__form__group__action
           = f.submit "放出する"

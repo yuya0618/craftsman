@@ -4,6 +4,7 @@ class Release < ApplicationRecord
   has_many :release_likes, dependent: :destroy
 
   validates :title, length: { maximum: 30 }
+  validates :detail, presence: true, length: { maximum: 500 }
 
 
   # ユーザーがそのReleaseに既にいいねしてるかどうか

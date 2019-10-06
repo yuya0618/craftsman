@@ -1,6 +1,6 @@
 class BuildsController < ApplicationController
   before_action :set_build, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_signup, except: [:signup, :top, :introduce]
+  before_action :move_to_signup, except: [:signup, :top, :introduce, :list]
 
   # GET /builds
   # GET /builds.json
@@ -77,7 +77,7 @@ class BuildsController < ApplicationController
 
   def list
     @all_builds = Build.page(params[:page]).per(10).order("created_at DESC")
-    @like = Like.where(user_id: current_user.id, build_id: params[:build_id])
+    @like = Like.where(user_id: current_user&.id, build_id: params[:build_id])
   end
 
   private

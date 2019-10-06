@@ -1,6 +1,6 @@
 class ReleasesController < ApplicationController
   before_action :set_release, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_signup
+  before_action :move_to_signup, except: [:list]
 
   def index
     @releases = Release.all
@@ -45,7 +45,7 @@ class ReleasesController < ApplicationController
 
   def list
     @all_releases = Release.page(params[:page]).per(10).order("created_at DESC")
-    @like = ReleaseLike.where(user_id: current_user.id, release_id: params[:release_id])
+    @like = ReleaseLike.where(user_id: current_user&.id, release_id: params[:release_id])
   end
 
   private

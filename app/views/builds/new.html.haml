@@ -9,19 +9,19 @@
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_field :title, placeholder: "募集テーマ"
+          = f.text_field :title, placeholder: "募集テーマ", required:true
 
         %span.build-registration__form__group__box__label 詳細
         -# %span.build-registration__form__group__box__necessary 必須
 
         .build-registration__form__group__box__select
-          = f.text_area :detail, placeholder: "詳細な募集内容"
+          = f.text_area :detail, placeholder: "詳細な募集内容", required:true
 
 
         %span.build-registration__form__group__box__label 報酬
         -# %span.build-registration__form__group__box__necessary 必須
         .build-registration__form__group__box__select-reward
-          = f.text_field :reward, placeholder: "ポイント"
+          = f.text_field :reward, placeholder: "ポイント", required:true
 
         .build-registration__form__group__actions
           = f.submit "建ち上げる"
