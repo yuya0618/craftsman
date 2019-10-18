@@ -28,6 +28,10 @@ class ProfilesController < ApplicationController
     redirect_to mypage_profile_path(current_user)
   end
 
+  def search
+    
+  end
+
   private
     def user_params
       params.permit(:name, :text, :icon)

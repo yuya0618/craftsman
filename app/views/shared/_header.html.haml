@@ -4,8 +4,8 @@
       .header-top__logo-box
         = link_to "Craftsman", root_path
       .header-top__search-form-box
-        = search_form_for(@search,url:search_builds_path,class:'header-top__search-form') do |f|
-          = f.text_field :name_cont, {class: 'header-top__input-field', placeholder: '何かお探しですか？',value:""}
+        = search_form_for(@search,url:search_profiles_path,class:'header-top__search-form') do |f|
+          = f.text_field :name_cont, {class: 'header-top__input-field', placeholder: 'craftsmanを探す',value:""}
           .header-top__send
             = f.button "", class: "header-top__fa wid fa fa-search"
 

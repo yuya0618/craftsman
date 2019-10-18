@@ -71,10 +71,6 @@ class BuildsController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-  end
-
-
   def list
     @all_builds = Build.page(params[:page]).per(10).order("created_at DESC")
     @like = Like.where(user_id: current_user&.id, build_id: params[:build_id])
