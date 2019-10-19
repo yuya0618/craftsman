@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-    @search = Build.ransack(params[:q])
-    @search_builds = @search.result
+    @search = User.ransack(params[:q])
+    @search_users = @search.result
   end
 
 

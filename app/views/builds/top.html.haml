@@ -28,7 +28,7 @@
     .top-head-form
       = search_form_for(@search,url:search_profiles_path,class:'header-top__search-form') do |f|
         .top-head-form-box
-          = f.text_field :title, {class: 'top-head-form-box-field', placeholder: 'craftsmanを探す',value:""}
+          = f.text_field :name_cont, {class: 'top-head-form-box-field', placeholder: 'craftsmanを探す',value:"", required:true}
           .header-top__send
             = f.button "検索", class: "top-head-form-box-field-button"
 

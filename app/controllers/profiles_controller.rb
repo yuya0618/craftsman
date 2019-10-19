@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    
+
   end
 
   private
