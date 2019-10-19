@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     collection do
       get 'top'
       get 'signup'
-      get 'search'
       get 'introduce'
       get 'list'
     end
@@ -32,6 +31,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update] do
     member do
       get 'mypage'
+    end
+    collection do
+      get 'search'
     end
   end
 

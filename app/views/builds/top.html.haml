@@ -26,9 +26,9 @@
         %span Craftsman
       %h1 集え、アイデア職人
     .top-head-form
-      = search_form_for(@search,url:search_builds_path,class:'header-top__search-form') do |f|
+      = search_form_for(@search,url:search_profiles_path,class:'header-top__search-form') do |f|
         .top-head-form-box
-          = f.text_field :title, {class: 'top-head-form-box-field', placeholder: '何かお探しですか？',value:""}
+          = f.text_field :title, {class: 'top-head-form-box-field', placeholder: 'craftsmanを探す',value:""}
           .header-top__send
             = f.button "検索", class: "top-head-form-box-field-button"
 
