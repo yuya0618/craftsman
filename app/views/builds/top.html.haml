@@ -4,10 +4,8 @@
       %ul.top-head-header-left.row
         %li.top-head-header-left-list.mr-4
           =link_to "Craftsmanとは？", introduce_builds_path,class:"header-button"
-        %li.top-head-header-left-list.mr-4
-          =link_to "Build", new_build_path,class:"header-button"
-        %li.top-head-header-left-list.mr-4
-          =link_to "Release", new_release_path,class:"header-button"
+        %li.top-head-header-left-list.mr-4#build-btn BUILD
+        %li.top-head-header-left-list.mr-4#release-btn RELEASE
         -if user_signed_in?
           %li.top-head-header-left-list.mr-4
             =link_to "マイページ", mypage_profile_path(current_user),class:"header-button"
@@ -65,7 +63,55 @@
           -@release_ranks.each do |release_rank|
             = render partial: 'releases/top-release', locals:{ release:release_rank }
 
+-# buildの隠しモーダル
+.build-modal-wrapper#build-modal
+  .build-registration
+    %h2.build-registration__head Buildを建ち上げて、アイデアを募集する
+    = form_with model: @build, class:'build-registration__form', local: true, html: { multipart: true } do |f|
+      .build-registration__form__group
+        %span.build-registration__form__group__box__label タイトル
+        -# %span.build-registration__form__group__box__necessary 必須
 
-= render partial: 'shared/build-btn'
-= render partial: 'shared/release-btn'
+        .build-registration__form__group__box__select
+          = f.text_field :title, placeholder: "募集テーマ", required:true
+
+        %span.build-registration__form__group__box__label 詳細
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_area :detail, placeholder: "詳細な募集内容", required:true
+
+
+        %span.build-registration__form__group__box__label 報酬
+        -# %span.build-registration__form__group__box__necessary 必須
+        .build-registration__form__group__box__select-reward
+          = f.text_field :reward, placeholder: "ポイント", required:true
+
+        .build-registration__form__group__actions
+          = f.submit "建ち上げる"
+        %a.btn.btn-light#back-build-btn 戻る
+
+-# releaseの隠しモーダル
+.release-modal-wrapper#release-modal
+  .build-registration
+    %h2.build-registration__heads アイデアを放出する
+    = form_with model: @release, class:'build-registration__form', local: true, html: { multipart: true } do |f|
+      .build-registration__form__group
+        %span.build-registration__form__group__box__label タイトル
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_field :title, placeholder: "アイデアの題名", required:true
+
+        %span.build-registration__form__group__box__label 詳細
+        -# %span.build-registration__form__group__box__necessary 必須
+
+        .build-registration__form__group__box__select
+          = f.text_area :detail, placeholder: "詳細なアイデアの内容", required:true
+
+        .build-registration__form__group__action
+          = f.submit "放出する"
+        %a.btn.btn-light#back-release-btn 戻る
+
+
 = render partial: 'shared/footer'

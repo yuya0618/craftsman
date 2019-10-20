@@ -1,15 +1,25 @@
-.build-registration{
-  margin-top: 10px;
-  background-color: #f5f5f5;
-  text-align: center;
-  padding: 30px;
-  height: calc(100vh - 190px);
-  &-box{
-    background-color: #fff;
+// build
+.build-modal-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none;
+  .build-registration{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    background-color: #e6ecf0;
+    padding: 20px 0 40px;
+    border-radius: 10px;
     width: 60%;
-    margin: 0 auto;
     padding: 40px;
     font-size: 20px;
+    height: auto;
+    text-align: center;
     &__head{
       font-family: sans-serif;
       color: firebrick;
@@ -22,54 +32,112 @@
       font-weight: bold;
       margin-bottom: 18px;
     }
-  }
-  &__form__group{
-    font-weight: 600;
-    color: darkslategrey;
-    &__box__select{
-      input{
-        width: 80%;
-        padding: 5px;
-        margin: 15px 0;
-      }
-      textarea{
-        width: 80%;
-        padding: 5px;
-        margin: 15px 0;
-      }
-      &-reward{
+    &__form__group{
+      font-weight: 600;
+      color: darkslategrey;
+      &__box__select{
         input{
-          width: 30%;
+          width: 80%;
           padding: 5px;
           margin: 15px 0;
         }
+        textarea{
+          width: 80%;
+          padding: 5px;
+          margin: 15px 0;
+        }
+        &-reward{
+          input{
+            width: 30%;
+            padding: 5px;
+            margin: 15px 0;
+          }
+        }
       }
-    }
-    &__actions{
-      input{
-        background-color: firebrick;
-        color: #fff;
-        font-weight: 500;
-        padding: 10px;
-        border-radius: 10px;
-        margin: 15px 0;
-        &:hover{
-          opacity: 0.7;
-          border: none;
+      &__actions{
+        input{
+          background-color: firebrick;
+          color: #fff;
+          font-weight: 500;
+          padding: 10px;
+          border-radius: 10px;
+          margin: 15px 0;
+          &:hover{
+            opacity: 0.7;
+          }
         }
       }
     }
-    &__action{
-      input{
-        background-color: navy;
-        color: #fff;
-        font-weight: 500;
-        padding: 10px;
-        border-radius: 10px;
-        margin: 15px 0;
-        &:hover{
-          opacity: 0.7;
-          border: none;
+  }
+}
+
+// release
+.release-modal-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none;
+  .build-registration{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    background-color: #e6ecf0;
+    padding: 20px 0 40px;
+    border-radius: 10px;
+    width: 60%;
+    padding: 40px;
+    font-size: 20px;
+    height: auto;
+    text-align: center;
+    &__head{
+      font-family: sans-serif;
+      color: firebrick;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+    &__heads{
+      font-family: sans-serif;
+      color: navy;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+    &__form__group{
+      font-weight: 600;
+      color: darkslategrey;
+      &__box__select{
+        input{
+          width: 80%;
+          padding: 5px;
+          margin: 15px 0;
+        }
+        textarea{
+          width: 80%;
+          padding: 5px;
+          margin: 15px 0;
+        }
+        &-reward{
+          input{
+            width: 30%;
+            padding: 5px;
+            margin: 15px 0;
+          }
+        }
+      }
+      &__action{
+        input{
+          background-color: navy;
+          color: #fff;
+          font-weight: 500;
+          padding: 10px;
+          border-radius: 10px;
+          margin: 15px 0;
+          &:hover{
+            opacity: 0.7;
+          }
         }
       }
     }

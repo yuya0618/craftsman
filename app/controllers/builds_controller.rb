@@ -17,6 +17,8 @@ class BuildsController < ApplicationController
     @like = Like.new
     @build_ranks = Build.find(Like.group(:build_id).order('count(build_id) desc').limit(3).pluck(:build_id))
     @release_ranks = Release.find(ReleaseLike.group(:release_id).order('count(release_id) desc').limit(3).pluck(:release_id))
+    @build = Build.new
+    @release = Release.new
   end
 
   def index
@@ -31,9 +33,9 @@ class BuildsController < ApplicationController
   end
 
   # GET /builds/new
-  def new
-    @build = Build.new
-  end
+  # def new
+  #   @build = Build.new
+  # end
 
   # GET /builds/1/edit
   def edit

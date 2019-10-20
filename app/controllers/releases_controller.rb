@@ -10,9 +10,9 @@ class ReleasesController < ApplicationController
     @like = ReleaseLike.where(user_id: current_user.id, release_id: params[:release_id])
   end
 
-  def new
-    @release = Release.new
-  end
+  # def new
+  #   @release = Release.new
+  # end
 
   def edit
     if @release.user_id != current_user.id
