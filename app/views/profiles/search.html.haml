@@ -14,11 +14,12 @@
         .user-box
           = link_to profile_path(user) do
             .user-box-body
+              -if user.icon.present?
+                .user-box-body-icon{style:"background-image:url( #{user.icon} )"}
+              - else
+                .user-box-body-nilicon
               %h4.user-box-body-name
                 =user.name
-            .user-box-photo
-              -# = image_tag user.icon, class:"user-box-photo-pic"
-
 
 = render partial: 'shared/build-btn'
 = render partial: 'shared/release-btn'

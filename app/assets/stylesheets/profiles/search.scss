@@ -3,4 +3,42 @@
   margin-top: 10px;
   background-color: #f5f5f5;
   padding: 30px;
+  .users-container{
+    .users-box{
+      &:hover{
+        background-color: ghostwhite;
+        opacity: 0.7;
+      }
+      .user-box{
+        display: inline-block;
+        a{
+          &:hover{
+            text-decoration: none;
+          }
+        }
+        &-body{
+          display: flex;
+          &-icon{
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            margin-right: 10px;
+          }
+          &-nilicon{
+            background-image: image-url("hito.png");
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            margin-right: 10px;
+          }
+          &-name{
+            margin: 0;
+            line-height: 50px;
+          }
+        }
+      }
+    }
+  }
 }
