@@ -6,5 +6,6 @@ class Build < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 30 }
   validates :detail, presence: true, length: { maximum: 500 }
-  validates :reward, presence: true
+  # 今は報酬制度は実施しない
+  # validates :reward, presence: true
 end
