@@ -10,14 +10,16 @@
         -@all_builds.each do |build|
           .build-box
             = link_to build_path(build) do
-              %span.build-box-title
-                -if build.user.icon.present?
-                  .build-box-title-icon{style:"background-image:url( #{build.user.icon} )"}
-                - else
-                  .build-box-title-nilicon
-                =build.title
-              %p
-                = build.detail
+              .build-box-head
+                %span.build-box-head-title
+                  -if build.user.icon.present?
+                    .build-box-head-title-icon{style:"background-image:url( #{build.user.icon} )"}
+                  - else
+                    .build-box-head-title-nilicon
+                  =build.title
+              .build-box-body
+                %p
+                  = build.detail
               -# いいね表示
               %ul.like-builds{id:"like-builds-#{build.id}"}
                 =render partial: 'likes/like', locals:{ build:build, like:@like }
