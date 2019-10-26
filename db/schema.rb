@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_062856) do
+ActiveRecord::Schema.define(version: 2019_10_26_072440) do
 
   create_table "build_comment_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "build_comment_id"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_09_30_062856) do
   create_table "builds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "detail", null: false
-    t.integer "reward", null: false
     t.integer "best_idea"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

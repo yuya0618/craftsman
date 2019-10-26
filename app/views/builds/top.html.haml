@@ -81,11 +81,11 @@
         .build-registration__form__group__box__select
           = f.text_area :detail, placeholder: "詳細な募集内容", required:true
 
-
-        %span.build-registration__form__group__box__label 報酬
-        -# %span.build-registration__form__group__box__necessary 必須
-        .build-registration__form__group__box__select-reward
-          = f.text_field :reward, placeholder: "ポイント", required:true
+        -# 今は報酬制度は実施しない
+        -# %span.build-registration__form__group__box__label 報酬
+        -# -# %span.build-registration__form__group__box__necessary 必須
+        -# .build-registration__form__group__box__select-reward
+        -#   = f.text_field :reward, placeholder: "ポイント", required:true
 
         .build-registration__form__group__actions
           = f.submit "建ち上げる"
