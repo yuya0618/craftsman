@@ -10,16 +10,18 @@
         -@all_releases.each do |release|
           .release-box
             = link_to release_path(release) do
-              %span.release-box-title
-              -if release.user.icon.present?
-                .release-box-title-icon{style:"background-image:url( #{release.user.icon} )"}
-              - else
-                .release-box-title-nilicon
-              %h2
-                =release.title
-              %p
-                = release.detail
-              -# いいね表示
+              .release-box-head
+                %span.release-box-head-title
+                -if release.user.icon.present?
+                  .release-box-head-title-icon{style:"background-image:url( #{release.user.icon} )"}
+                - else
+                  .release-box-head-title-nilicon
+                %h2
+                  =release.title
+              .release-box-body
+                %p
+                  = release.detail
+                -# いいね表示
               %ul.like-releases{id:"like-releases-#{release.id}"}
                 =render partial: 'release_likes/like', locals:{ release:release, like:@like }
 

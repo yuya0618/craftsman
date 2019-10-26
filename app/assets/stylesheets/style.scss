@@ -1,3 +1,33 @@
+// レスポンシブ
+$pc: 1190px; // PC
+$tab: 768px; // タブレット
+$sp: 576px;  // スマホ
+
+$mypage: 1000px; //mypage
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+@mixin mypage {
+  @media (max-width: ($mypage)) {
+    @content;
+  }
+}
+
+
+
 /*
     TODO will need to remove settings on HTML since we can't namespace it.
     TODO with the prefix, should I group by selector or property for weight savings?

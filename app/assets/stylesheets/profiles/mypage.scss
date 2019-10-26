@@ -54,11 +54,14 @@
     border-bottom: 2px solid blue;
   }
   &-bottom{
-    height: 500px;
+    height: 800px;
     &-bar{
       height: 70px;
       border-bottom: 1px solid lightgray;
       li{
+        @include sp{
+          font-size: 13px;
+        }
         height: 100%;
         list-style: none;
         text-align: center;
@@ -69,13 +72,16 @@
     &-content{
       padding-top: 10px;
       overflow: scroll;
-      height: 430px;;
+      height: 730px;;
       // build一覧
       .mybuild{
-        height: 430px;
+        height: 730px;
         display: flex;
         flex-wrap: wrap;
         .build-box{
+          @include mypage{
+            width: 45%;
+          }
           position: relative;
           margin: 2em auto;
           padding: 3.2em 1em 1em;
@@ -118,10 +124,13 @@
       }
       // release一覧
       .myrelease{
-        height: 430px;
+        height: 730px;
         display: flex;
         flex-wrap: wrap;
         .release-box{
+          @include mypage{
+            width: 45%;
+          }
           position:relative;
           padding: 35px 20px 15px;
           background-color: #e8ddbd;
@@ -152,10 +161,13 @@
       }
       // mynice一覧
       .mynice{
-        height: 430px;
+        height: 730px;
         display: flex;
         flex-wrap: wrap;
         .build-box{
+          @include mypage{
+            width: 45%;
+          }
           position: relative;
           margin: 2em auto;
           padding: 3.2em 1em 1em;
@@ -196,6 +208,9 @@
           }
         }
         .release-box{
+          @include mypage{
+            width: 45%;
+          }
           position:relative;
           padding: 35px 20px 15px;
           background-color: #e8ddbd;
