@@ -1,14 +1,26 @@
 .introduce{
+  @include sp{
+    padding: 70px;
+  }
   margin-top: 10px;
   background-color: #f5f5f5;
   padding: 100px;
   &-content{
+    @include tab{
+      width: 100%;
+    }
     background-color: #fff;
     width: 80%;
     margin: 0 auto;
     padding: 80px;
     h1{
-      font-size: 70px;
+      @include tab{
+        font-size: 50px;
+      }
+      @include sp{
+        font-size: 35px;
+      }
+      font-size: 65px;
       color: tomato;
       font-style: italic;
       font-weight: 900;
@@ -17,6 +29,9 @@
       text-align: center;
     }
     h4{
+      @include tab{
+        font-size: 20px;
+      }
       font-size: 28px;
       color: tomato;
       font-style: italic;
@@ -26,6 +41,9 @@
       text-align: center;
     }
     p{
+      @include tab{
+        font-size: 15px;
+      }
       margin-top: 45px;
       font-size: 20px;
       font-weight: 600;
@@ -33,6 +51,9 @@
       line-height: 2;
     }
     img{
+      @include tab{
+        height: 200px;
+      }
       height: 400px;
       width: 80%;
       margin: 0 auto;
