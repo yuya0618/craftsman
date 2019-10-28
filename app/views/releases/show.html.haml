@@ -12,10 +12,12 @@
           .release-box-title-icon{style:"background-image:url( #{@release.user.icon} )"}
         - else
           .release-box-title-nilicon
-      %h2
-        = @release.title
-      %p
-        = @release.detail
+      .release-box-head
+        %h2
+          = @release.title
+      .release-box-body
+        %p
+          = @release.detail
 
       -# いいね表示
       %ul.like-releases{id:"like-releases-#{@release.id}"}
