@@ -4,9 +4,9 @@
       %ul.top-head-header-left.row
         %li.top-head-header-left-list.mr-4
           =link_to "Craftsmanとは？", introduce_builds_path,class:"header-button"
-        %li.top-head-header-left-list.mr-4#build-btn BUILD
-        %li.top-head-header-left-list.mr-4#release-btn RELEASE
         -if user_signed_in?
+          %li.top-head-header-left-list.mr-4#build-btn BUILD
+          %li.top-head-header-left-list.mr-4#release-btn RELEASE
           %li.top-head-header-left-list.mr-4
             =link_to "マイページ", mypage_profile_path(current_user),class:"header-button"
       %ul.top-head-header-right.row.mx-0.py-2
