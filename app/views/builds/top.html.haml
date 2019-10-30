@@ -1,34 +1,35 @@
 .top
   .top-head
-    .top-head-header.row.mx-0
-      %ul.top-head-header-left.row
-        %li.top-head-header-left-list.mr-4
-          =link_to "Craftsmanとは？", introduce_builds_path,class:"header-button"
-        -if user_signed_in?
-          %li.top-head-header-left-list.mr-4#build-btn BUILD
-          %li.top-head-header-left-list.mr-4#release-btn RELEASE
+    .top-head-container
+      .top-head-header.row.mx-0
+        %ul.top-head-header-left.row
           %li.top-head-header-left-list.mr-4
-            =link_to "マイページ", mypage_profile_path(current_user),class:"header-button"
-      %ul.top-head-header-right.row.mx-0.py-2
-        -if user_signed_in?
-          %li.top-head-header-right-list.mr-4
-            =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-button-login"
-        -else
-          %li.top-head-header-right-list.mr-4
-            =link_to "新規会員登録", signup_builds_path,class:"header-button-resi"
-          %li.top-head-header-right-list.mr-4
-            =link_to "ログイン", new_user_session_path,class:"header-button-login"
-    .top-head-box
-      .top-head-box-title.mb-5
-        = icon 'fas', 'home'
-        %span Craftsman
-      %h1 集え、アイデア職人
-    .top-head-form
-      = search_form_for(@search,url:search_profiles_path,class:'header-top__search-form') do |f|
-        .top-head-form-box
-          = f.text_field :name_cont, {class: 'top-head-form-box-field', placeholder: 'craftsmanを探す',value:"", required:true}
-          .header-top__send
-            = f.button "検索", class: "top-head-form-box-field-button"
+            =link_to "Craftsmanとは？", introduce_builds_path,class:"header-button"
+          -if user_signed_in?
+            %li.top-head-header-left-list.mr-4#build-btn BUILD
+            %li.top-head-header-left-list.mr-4#release-btn RELEASE
+            %li.top-head-header-left-list.mr-4
+              =link_to "マイページ", mypage_profile_path(current_user),class:"header-button"
+        %ul.top-head-header-right.row.mx-0.py-2
+          -if user_signed_in?
+            %li.top-head-header-right-list.mr-4
+              =link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-button-login"
+          -else
+            %li.top-head-header-right-list.mr-4
+              =link_to "新規会員登録", signup_builds_path,class:"header-button-resi"
+            %li.top-head-header-right-list.mr-4
+              =link_to "ログイン", new_user_session_path,class:"header-button-login"
+      .top-head-box
+        .top-head-box-title.mb-5
+          = icon 'fas', 'home'
+          %span Craftsman
+        %h1 集え、アイデア職人
+      .top-head-form
+        = search_form_for(@search,url:search_profiles_path,class:'header-top__search-form') do |f|
+          .top-head-form-box
+            = f.text_field :name_cont, {class: 'top-head-form-box-field', placeholder: 'craftsmanを探す',value:"", required:true}
+            .header-top__send
+              = f.button "検索", class: "top-head-form-box-field-button"
 
   .top-bottom
     -# Buildの一覧

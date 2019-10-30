@@ -1,83 +1,86 @@
 .top{
   &-head{
+    background-image: url("craft.jpg");
     height: 500px;
-    background-color: tomato;
     color: aliceblue;
-    &-header{
-      background-color: tomato;
+    &-container{
+      height: 500px;
+      background-color: rgba(255, 99, 71, 0.5);
+      .top-head-header{
         color: aliceblue;
         height: 50px;
         line-height: 50px;
         justify-content: space-between;
-      &-left{
-        margin-left: 20px;
-        &-list{
-          cursor: pointer;
-          .header-button{
-            color: #fff;
-            &:hover{
-              text-decoration: none;
+        &-left{
+          margin-left: 20px;
+          &-list{
+            cursor: pointer;
+            .header-button{
+              color: #fff;
+              &:hover{
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        &-right{
+          &-list{
+            margin-right: 5px;
+            .header-button-resi{
+              background-color: red;
+              border: red;
+              padding: 10px;
+              border-radius: 5px;
+              color: #fff;
+              &:hover{
+                text-decoration: none;
+                opacity: 0.7;
+              }
+            }
+            .header-button-login{
+              @include sp{
+                display: none;
+              }
+              background-color: blue;
+              border: blue;
+              padding: 10px;
+              border-radius: 5px;
+              color: #fff;
+              &:hover{
+                text-decoration: none;
+                opacity: 0.7;
+              }
             }
           }
         }
       }
-      &-right{
-        &-list{
-          margin-right: 5px;
-          .header-button-resi{
-            background-color: red;
-            border: red;
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff;
-            &:hover{
-              text-decoration: none;
-              opacity: 0.7;
-            }
-          }
-          .header-button-login{
-            @include sp{
-              display: none;
-            }
-            background-color: blue;
-            border: blue;
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff;
-            &:hover{
-              text-decoration: none;
-              opacity: 0.7;
-            }
-          }
+      .top-head-box{
+        text-align: center;
+        padding: 50px;
+        letter-spacing: 3px;
+        &-title{
+          font-size: 25px;
         }
       }
-    }
-    &-box{
-      text-align: center;
-      padding: 50px;
-      letter-spacing: 3px;
-      &-title{
-        font-size: 25px;
-      }
-    }
-    &-form{
-      padding: 30px;
-      text-align: center;
-      &-box{
-        display: inline-flex;
-        &-field{
-          padding: 10px;
-          width: 300px;
-          height: 50px;
-          border: 1px white;
-          border-radius: 6px 0 0 6px;
-          &-button{
+      .top-head-form{
+        padding: 30px;
+        text-align: center;
+        &-box{
+          display: inline-flex;
+          &-field{
+            padding: 10px;
+            width: 300px;
             height: 50px;
-            width: 80px;
-            border: 1px deepskyblue;
-            background-color: deepskyblue;
-            color: #fff;
-            border-radius: 0 6px 6px 0;
+            border: 1px white;
+            border-radius: 6px 0 0 6px;
+            &-button{
+              height: 50px;
+              width: 80px;
+              border: 1px deepskyblue;
+              background-color: deepskyblue;
+              color: #fff;
+              border-radius: 0 6px 6px 0;
+            }
           }
         }
       }
