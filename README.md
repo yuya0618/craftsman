@@ -1,4 +1,4 @@
-# Craftsman（作成中）
+# Craftsman
 
 ![e1a4552a37fbe4aa7b44d084a4810591](https://user-images.githubusercontent.com/52994356/66021137-8685a680-e524-11e9-8136-1e523579b9e6.gif)
 
@@ -54,7 +54,7 @@ DM機能　　　→　アイディアをくれた人に直接連絡を取りた
 ・プレミア投稿 or プレミアフォロー  
 
 
-# Features/機能（作成中）
+# Features/機能
 ・ログイン機能  
 ・Build(アイデア募集)投稿・編集・削除  
 ・Buildへの案投稿・編集・削除  
@@ -63,15 +63,15 @@ DM機能　　　→　アイディアをくれた人に直接連絡を取りた
 ・Releaseへのコメント投稿・編集・削除  
 ・nice機能（非同期）  
 ・ランキング機能  
-・グループ作成機能  
+  
 
 
 
 # Will/今後実装したい機能
+・グループ作成機能
 
 
-
-# DB設計（作成中）
+# DB設計
 
 ## usersテーブル
 |Column|Type|Options|
