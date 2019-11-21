@@ -1,6 +1,7 @@
 # Craftsman
 
-![e1a4552a37fbe4aa7b44d084a4810591](https://user-images.githubusercontent.com/52994356/66021137-8685a680-e524-11e9-8136-1e523579b9e6.gif)
+![36e5da8f63c41424f50ed4670e6bc87e](https://user-images.githubusercontent.com/52994356/69314779-5337dc00-0c78-11ea-806c-ead7c6c3be9e.gif)
+
 
 
 # Overview/概要
